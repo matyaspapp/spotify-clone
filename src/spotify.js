@@ -1,3 +1,5 @@
+import SpotifyWebApi from 'spotify-web-api-js';
+
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 const redirectUri = 'http://localhost:3000/';
 const clientId = '3353e643f35b495a925019c575c75a9a';
@@ -22,3 +24,5 @@ export const getTokenFromUrl = () =>
       initial[parts[0]] = decodeURIComponent(parts[1]);
       return initial
     }, {})
+
+export const spotify = new SpotifyWebApi();
