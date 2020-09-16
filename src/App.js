@@ -5,6 +5,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Login from './Components/Login';
+import Player from './Components/Player';
 import { getTokenFromUrl, spotify } from './spotify';
 
 
@@ -26,7 +27,7 @@ function App() {
     <div className="app">
       {
         token ? (
-          <h1>You are logged in!</h1>
+          <Player />
         ) : (
           <Login />
         )
