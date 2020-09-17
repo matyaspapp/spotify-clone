@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-const Player = () => {
+const Player = ({ spotify }) => {
   return (
     <div className="player">
       <h1>Player</h1>

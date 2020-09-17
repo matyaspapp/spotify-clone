@@ -2,15 +2,16 @@
  * use BEM naming convention
  * https://en.bem.info/methodology/naming-convention/
 */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Login from './Components/Login';
 import Player from './Components/Player';
 import { getTokenFromUrl, spotify } from './spotify';
+import { useStateProviderValue } from './StateProvider';
 
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [{ user, token }, dispatch] = useStateProviderValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -18,8 +19,19 @@ function App() {
 
     const _token = hash.access_token;
     if (_token) {
-      setToken(_token);
+      dispatch({
+        type: 'SET_TOKEN',
+        token: _token
+      });
       spotify.setAccessToken(_token);
+      spotify
+        .getMe()
+        .then((user) => {
+          dispatch({
+            type: 'SET_USER',
+            user: user,
+          });
+        });
     }
   }, []);
 
@@ -27,7 +39,7 @@ function App() {
     <div className="app">
       {
         token ? (
-          <Player />
+          <Player spotify={spotify} />
         ) : (
           <Login />
         )
