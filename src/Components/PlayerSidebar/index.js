@@ -4,7 +4,7 @@ import './index.css';
 const PlayerSidebar = () => {
   return (
     <div className="playerSidebar">
-      
+      <h1>SIDEBAR</h1>
     </div>
   );
 }

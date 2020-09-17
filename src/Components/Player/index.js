@@ -1,7 +1,7 @@
 import React from 'react';
+import './index.css';
 import PlayerBody from '../PlayerBody';
 import PlayerSidebar from '../PlayerSidebar';
-import './index.css';
 
 const Player = ({ spotify }) => {
   return (
