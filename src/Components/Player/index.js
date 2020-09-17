@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import PlayerBody from '../PlayerBody';
 import PlayerSidebar from '../PlayerSidebar';
+import PlayerFooter from '../PlayerFooter';
 
 const Player = ({ spotify }) => {
   return (
@@ -10,6 +11,7 @@ const Player = ({ spotify }) => {
         <PlayerSidebar />
         <PlayerBody />
       </div>
+      <PlayerFooter />
     </div>
   );
 };

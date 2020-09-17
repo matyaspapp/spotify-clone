@@ -4,7 +4,11 @@ import './index.css';
 const PlayerSidebar = () => {
   return (
     <div className="playerSidebar">
-      <h1>SIDEBAR</h1>
+      <img
+        className="playerSidebar__logo"
+        src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
+        alt=""
+      />
     </div>
   );
 }
