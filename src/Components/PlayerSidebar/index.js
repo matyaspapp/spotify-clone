@@ -4,8 +4,11 @@ import PlayerSidebarOption from '../PlayerSidebarOption';
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+import { useStateProviderValue } from '../../StateProvider';
 
 const PlayerSidebar = () => {
+  const [{ playlists }, dispatch] = useStateProviderValue();
+
   return (
     <div className="playerSidebar">
       <img
@@ -21,9 +24,11 @@ const PlayerSidebar = () => {
       <strong className="playerSidebar__title">PLAYLISTS</strong>
       <hr />
 
-      <PlayerSidebarOption title="Hip hop" />
-      <PlayerSidebarOption title="R'n'B" />
-      <PlayerSidebarOption title="Rock" />
+      {
+        playlists?.items?.map(playlist => (
+          <PlayerSidebarOption title={playlist.name} />
+        ))
+      }
     </div>
   );
 }
